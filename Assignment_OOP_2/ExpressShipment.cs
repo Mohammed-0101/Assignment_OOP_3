@@ -49,7 +49,7 @@ namespace Assignment_OOP_3
         {
             get
             {
-                return base.EstimatedCost + ExtraFee;
+                return DeliveryFee+ (Weight *5) + ExtraFee;
             }
         }
 
@@ -59,7 +59,8 @@ namespace Assignment_OOP_3
             Console.WriteLine("Shipment Type: Express");
 
             base.PrintShipment();
-
+            Console.WriteLine(
+                $"Estimated Cost: {EstimatedCost} EGP");
             Console.WriteLine($"Extra Fee: {ExtraFee} EGP");
         }
     }

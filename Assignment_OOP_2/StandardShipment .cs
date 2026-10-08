@@ -23,5 +23,15 @@ namespace Assignment_OOP_3
             destination)
         {
         }
+
+        public override void PrintShipment()
+        {
+            Console.WriteLine("Shipment Details : ");
+            base.PrintShipment();
+            Console.WriteLine(
+                $"Estimated Cost: {EstimatedCost} EGP");
+        }
+
+        public override decimal EstimatedCost => base.EstimatedCost;
     }
 }

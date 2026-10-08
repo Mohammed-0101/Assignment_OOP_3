@@ -10,42 +10,64 @@ namespace Assignment_OOP_3
     {
         static void Main(string[] args)
         {
-            //Part 01 : Theoretical Questions
-            #region Question 1
-            // Question A
-            /*
-             Class:
-            1- A reference type. 2- Can inherit from another class. 3- impliment in Big Projects.
-
-            Struct:
-            1- A value type. 2- Cannot inherit from another class or struct. 3- impliment in Small Projects because it have 14 Bytes to be good performance.
+            #region Q1 Overloading, Overriding, and Binding
+            //a)  What is the difference between Method Overloading and Method Overriding?
+            /* Method Overloading:
+             *      1- Same method name with different parameters.
+             *      2- Usually occurs within the same class.
+             *      3- Does not require inheritance.	
+             *      4- Uses different numbers, types, or orders of parameters.	
+             *      5- Associated with compile-time polymorphism.
              */
-
-
-            //Question B
-
-            /*
-             Because The Classes support Inheritance , polymorphism and have a big size because it reference type
+            /* Method Overriding:
+            *       1- Same method name and parameter signature in a derived class.
+                    2- Occurs between a base class and a derived class.
+                    3- Requires inheritance.
+                    4- Uses virtual in the base class and override in the derived class.
+                    5- Associated with runtime polymorphism.
+            */
+            //b)  What is the difference between Static Binding and Dynamic Binding?
+            /* Static Binding:
+             *      1- Method selection is determined at compile time.	
+                    2- Commonly associated with method overloading.	
+                    3- Uses compile-time type information.	
+                    4- Generally has less runtime dispatch overhead.	
+             */
+            /* Dynamic Binding:
+             *      1- Method selection is determined at runtime.
+             *      2- Commonly associated with method overriding.
+             *      3- Uses the actual object's runtime type for virtual dispatch.
+             *      4- May involve additional runtime dispatch overhead.
              */
             #endregion
 
-            #region Question 2
-            // a) Which class is the parent class?
-            // Shipment
-
-            //b) Which class is the child class?
-            // ExpressShipment
-
-            //c) What members are inherited by ExpressShipment?
-            // TrackingCode
-
-            //d) Why is inheritance better than duplicating the same code in multiple classes?
-            //Inheritance reduces code duplication, improves maintainability,
-            //and makes large C# applications easier to develop and manage.
+            #region Q2 Sealed Classes and Methods
+            //a)  What is the purpose of the sealed keyword when applied to a class?
+            /*The sealed keyword prevents a class from being inherited by another class.
+             */
+            //b)  What is the difference between a sealed class and a sealed method?
+            /* Sealed Class:
+             *      1- Prevents inheritance of the entire class.
+             *      2- Declared using sealed class.
+             *      3- No class can derive from it.
+             *      4-Can contain ordinary methods.
+             */
+            /* Sealed Method:
+             *      1- Prevents further overriding of a specific method.
+             *      2- Declared using sealed override.
+             *      3- A derived class can inherit the method but cannot override it again.
+             *      4- Must override an inherited virtual method.
+             * 
+             */
+            //c)  Can a sealed method be overridden? Why?
+            /* No. A sealed method cannot be overridden again in a derived class.
+             * he sealed keyword prevents further overriding, 
+             * ensuring that the implementation remains unchanged through subsequent inheritance.
+             */
             #endregion
 
             // Part 02 : Smart Delivery Management System
-            //2. Create Three Shipment Types
+            
 
             #region 5. In Main
 

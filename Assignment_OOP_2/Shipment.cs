@@ -125,6 +125,16 @@ namespace Assignment_OOP_3
             }
         }
 
+        // Update Weight
+
+        public void UpdateWeight(int newWeight)
+        {
+            if (newWeight > 0)
+            {
+                Weight = newWeight;
+            }
+        }
+
         // Print shipment information
         public virtual void PrintShipment()
         {
@@ -135,8 +145,7 @@ namespace Assignment_OOP_3
             Console.WriteLine(
                 $"Destination: {Destination.GetFullAddress()}");
 
-            Console.WriteLine(
-                $"Estimated Cost: {EstimatedCost} EGP");
+            
         }
     }
 }

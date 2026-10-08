@@ -66,7 +66,7 @@ namespace Assignment_OOP_3
         {
             get
             {
-                return base.EstimatedCost + CustomsFee;
+                return DeliveryFee + (Weight * 5) + CustomsFee;
             }
         }
 
@@ -76,7 +76,8 @@ namespace Assignment_OOP_3
             Console.WriteLine("Shipment Type: International");
 
             base.PrintShipment();
-
+            Console.WriteLine(
+                $"Estimated Cost: {EstimatedCost} EGP");
             Console.WriteLine(
                 $"Destination Country: {DestinationCountry}");
 
