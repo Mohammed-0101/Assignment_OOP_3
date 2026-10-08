@@ -138,7 +138,7 @@ namespace Assignment_OOP_3
 
         public void UpdateWeight(int newWeight , int extraWeight)
         {
-            if (newWeight > 0 & extraWeight>0)
+            if (newWeight > 0 && extraWeight>0)
             {
                 Weight = newWeight + extraWeight;
             }

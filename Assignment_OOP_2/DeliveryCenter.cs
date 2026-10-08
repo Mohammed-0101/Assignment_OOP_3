@@ -117,17 +117,23 @@ namespace Assignment_OOP_3
 
             bool hasShipments = false;
 
-            for (int i = 0; i < _shipments.Length; i++)
+            //for (int i = 0; i < _shipments.Length; i++)
+            //{
+            //    if (_shipments[i] != null)
+            //    {
+            //        hasShipments = true;
+
+            //        Console.WriteLine(
+            //            $"\n--- Shipment {i + 1} ---");
+
+            //        _shipments[i].PrintShipment();
+            //    }
+            //}
+
+            foreach(Shipment s in _shipments)
             {
-                if (_shipments[i] != null)
-                {
-                    hasShipments = true;
-
-                    Console.WriteLine(
-                        $"\n--- Shipment {i + 1} ---");
-
-                    _shipments[i].PrintShipment();
-                }
+                s.PrintShipment();
+                hasShipments = true;
             }
 
             if (!hasShipments)
