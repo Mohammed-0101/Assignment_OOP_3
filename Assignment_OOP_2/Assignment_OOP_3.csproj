@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompletedShipment.cs" />
     <Compile Include="DeliveryAddress.cs" />
     <Compile Include="DeliveryCenter.cs" />
     <Compile Include="DeliveryHelper.cs" />
