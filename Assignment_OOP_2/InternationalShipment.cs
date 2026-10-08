@@ -76,18 +76,17 @@ namespace Assignment_OOP_3
             Console.WriteLine("Shipment Type: International");
 
             base.PrintShipment();
-            Console.WriteLine(
-                $"Estimated Cost: {EstimatedCost} EGP");
-            Console.WriteLine(
-                $"Destination Country: {DestinationCountry}");
-
-            Console.WriteLine(
-                $"Customs Fee: {CustomsFee} EGP");
+            Console.WriteLine($"Estimated Cost: {EstimatedCost} EGP");
+            Console.WriteLine($"Destination Country: {DestinationCountry}");
+            Console.WriteLine($"Customs Fee: {CustomsFee} EGP");
         }
 
         public virtual void GenerateCustomsReport()
         {
             Console.WriteLine("CustomsReport");
+            Console.WriteLine($"Customs Report for {TrackingCode}");
+            Console.WriteLine($"Country            : {DestinationCountry}");
+            Console.WriteLine($"Customs Fee        : {CustomsFee} EGP");
         }
     }
 }

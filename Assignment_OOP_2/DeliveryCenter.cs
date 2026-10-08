@@ -132,7 +132,8 @@ namespace Assignment_OOP_3
 
             foreach(Shipment s in _shipments)
             {
-                s.PrintShipment();
+                DeliveryHelper.PrintShipmentDetails(s);
+                //s.PrintShipment();
                 hasShipments = true;
             }
 

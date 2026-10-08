@@ -11,7 +11,12 @@ namespace Assignment_OOP_2
     {
         public static void PrintShipmentDetails(Shipment shipment)
         {
-            shipment.PrintShipment();
+            if(shipment != null)
+            {
+                shipment.PrintShipment();
+            }
+            
+            
         }
     }
 }

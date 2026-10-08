@@ -15,7 +15,10 @@ namespace Assignment_OOP_2
 
         public sealed override void GenerateCustomsReport()
         {
+            Console.WriteLine("*** PRIORITY CUSTOMS REPORT ***");
             base.GenerateCustomsReport();
+            Console.WriteLine("Handling Status    : High Priority");
         }
     }
+    
 }

@@ -128,7 +128,7 @@ namespace Assignment_OOP_3
 
         // Update Weight
 
-        public void UpdateWeight(int newWeight)
+        public void UpdateWeight(decimal newWeight)
         {
             if (newWeight > 0)
             {
@@ -136,7 +136,7 @@ namespace Assignment_OOP_3
             }
         }
 
-        public void UpdateWeight(int newWeight , int extraWeight)
+        public void UpdateWeight(decimal newWeight , decimal extraWeight)
         {
             if (newWeight > 0 && extraWeight>0)
             {
@@ -151,10 +151,9 @@ namespace Assignment_OOP_3
             Console.WriteLine($"Description: {Description}");
             Console.WriteLine($"Weight: {Weight} KG");
             Console.WriteLine($"Delivery Fee: {DeliveryFee} EGP");
-            Console.WriteLine(
-                $"Destination: {Destination.GetFullAddress()}");
+            Console.WriteLine($"Destination: {Destination.GetFullAddress()}");
+            Console.WriteLine($"Estimated Cost: {EstimatedCost} EGP");
 
-            
         }
     }
 }

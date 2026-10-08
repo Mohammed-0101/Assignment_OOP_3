@@ -14,7 +14,10 @@ namespace Assignment_OOP_2
         public int DriverID { get; set; }
         public string FullName { get; set; }
         public string PhoneNumber { get; set; }
+        public Driver()
+        {
 
+        }
         public Driver(int driverID, string fullName, string phoneNumber)
         {
             DriverID = driverID;

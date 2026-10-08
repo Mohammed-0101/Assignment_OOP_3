@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assignment_OOP_2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -67,55 +68,115 @@ namespace Assignment_OOP_3
             #endregion
 
             // Part 02 : Smart Delivery Management System
-            
+
 
             #region 5. In Main
+            #region 1. Create a Driver
 
-            // 1. Create DeliveryCenter
+            int driverId = ReadPositiveInteger("Driver ID: ");
+            string driverName = ReadText("Driver Full Name: ");
+            string driverPhone = ReadText("Driver Phone Number: ");
+            Driver driver = new Driver(driverId, driverName, driverPhone);
+            #endregion
+
+            #region 2. Create DeliveryCenter
             DeliveryCenter center = new DeliveryCenter();
-
-            // 2. Read center name
-            Console.WriteLine("=== Smart Delivery Management System ===");
-
             center.CenterName = ReadText("Enter Center Name: ");
+            #endregion
 
-            Console.WriteLine();
+            #region 3. Assign the Driver to the DeliveryCenter
+            center.Driver = driver;
+            Console.WriteLine($"\nAssigned Driver: {center.Driver.FullName}\n");
+            #endregion
 
-            // 3. Create StandardShipment
+            #region Create StandardShipment
             Console.WriteLine("--- Enter Standard Shipment Data ---");
-
             Shipment standard = ReadShipment("Standard");
+            #endregion
 
+            #region Create ExpressShipment
+            Console.WriteLine("--- Enter Express Shipment Data ---");
+            Shipment express = ReadShipment("Express");
+            #endregion
+
+            #region Create InternationalShipment
+            Console.WriteLine("--- Enter International Shipment Data ---");
+            Shipment international = ReadShipment("International");
+            #endregion
+
+            #region Add all shipments to the DeliveryCenter
             center.AddShipment(standard);
-
             Console.WriteLine("Standard shipment added successfully.\n");
 
-
-            // 4. Create ExpressShipment
-            Console.WriteLine("--- Enter Express Shipment Data ---");
-
-            Shipment express = ReadShipment("Express");
-
             center.AddShipment(express);
-
             Console.WriteLine("Express shipment added successfully.\n");
 
-
-            // 5. Create InternationalShipment
-            Console.WriteLine("--- Enter International Shipment Data ---");
-
-            Shipment international = ReadShipment("International");
-
             center.AddShipment(international);
-
             Console.WriteLine("International shipment added successfully.\n");
+            #endregion
 
-
-            // 6. Print all shipments
+            #region Print all shipments
+            Console.WriteLine("\n=== Dynamic Binding: DeliveryCenter ===");
             center.PrintAllShipments();
+            #endregion
+
+            #region Call DeliveryHelper.PrintShipmentDetails() for each shipment.
+            Console.WriteLine("\n=== Printing Using DeliveryHelper ===");
+            DeliveryHelper.PrintShipmentDetails(standard);
+            Console.WriteLine();
+            DeliveryHelper.PrintShipmentDetails(express);
+            Console.WriteLine();
+            DeliveryHelper.PrintShipmentDetails(international);
+            #endregion
+
+            #region Demonstrate both versions of UpdateWeight().
+            Console.WriteLine("\n=== Method Overloading: UpdateWeight ===");
+            Console.WriteLine($"Original Weight             : {standard.Weight} KG");
+
+            // Version 1: replaces the weight (e.g. 3 -> 5).
+            decimal newWeight = standard.Weight + 2m;
+            standard.UpdateWeight(newWeight);
+            Console.WriteLine($"Updated Weight              : {standard.Weight} KG");
+
+            // Version 2: 5 + 0.5 KG of packing -> 5.5 KG.
+            standard.UpdateWeight(standard.Weight, 0.5m);
+            Console.WriteLine($"Updated Weight After Packing: {standard.Weight} KG");
+            Console.WriteLine($"New Estimated Cost          : {standard.EstimatedCost} EGP");
+            #endregion
+
+            #region Build a Shipment[] holding mixed types and print all of them in a loop.
+            Console.WriteLine("\n=== Dynamic Binding: Shipment[] ===");
+            Shipment[] mixedShipments = { standard, express, international };
+
+            foreach (Shipment shipment in mixedShipments)
+            {
+                Console.WriteLine("------------------------------------------");
+                shipment.PrintShipment(); // Correct override resolved at runtime.
+            }
+            #endregion
+
+            #region Demonstrate the sealed class and sealed method (comments or code).
+
+            Console.WriteLine("\n=== Sealed Class Example ===");
+            CompletedShipment completed = new CompletedShipment(
+                "DONE001", "Delivered Package", 1m, 50m,
+                new DeliveryAddress("Cairo", "Main Street", 10));
+            completed.PrintShipment();
+
+            // This is illegal because CompletedShipment is sealed:
+            // class ChildCompleted : CompletedShipment { }
+
+            Console.WriteLine("\n=== Sealed Method Example ===");
+            PriorityInternationalShipment priority = new PriorityInternationalShipment(
+                "PRI001", "Urgent Documents", 2m, 80m,
+                new DeliveryAddress("Cairo", "Main Street", 12),
+                "Germany", 35m);
+            priority.GenerateCustomsReport();
+            #endregion
 
 
-            // 7. Search using tracking code indexer
+
+            #region Search using tracking code indexer
             Console.WriteLine();
 
             string searchCode = ReadText(
@@ -133,9 +194,9 @@ namespace Assignment_OOP_3
             {
                 Console.WriteLine("Shipment not found.");
             }
+            #endregion
 
-
-            // 8. Remove a shipment
+            #region Remove a shipment
             Console.WriteLine();
 
             string removeCode = ReadText(
@@ -149,15 +210,15 @@ namespace Assignment_OOP_3
             {
                 Console.WriteLine("Shipment not found.");
             }
+            #endregion
 
-
-            // 9. Print remaining shipments
+            #region Print remaining shipments
             Console.WriteLine("\n--- Remaining Shipments ---");
 
             center.PrintAllShipments();
+            #endregion
 
-
-            // 10. Demonstrate DeliveryAddress struct copy behavior
+            //  Demonstrate DeliveryAddress struct copy behavior
             Console.WriteLine("\n--- Struct Copy Test ---");
 
             DeliveryAddress originalAddress = standard.Destination;
