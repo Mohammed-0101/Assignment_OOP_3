@@ -84,5 +84,10 @@ namespace Assignment_OOP_3
             Console.WriteLine(
                 $"Customs Fee: {CustomsFee} EGP");
         }
+
+        public virtual void GenerateCustomsReport()
+        {
+            Console.WriteLine("CustomsReport");
+        }
     }
 }
