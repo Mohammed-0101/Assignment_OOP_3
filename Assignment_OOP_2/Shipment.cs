@@ -81,7 +81,8 @@ namespace Assignment_OOP_3
                 return DeliveryFee + (Weight * 5);
             }
         }
-
+        // Composition
+        public DeliveryAddress DeliveryAddress { get; }
         // Constructor 1
         public Shipment(string trackingCode)
             : this(

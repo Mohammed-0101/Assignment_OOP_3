@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assignment_OOP_2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,11 +15,16 @@ namespace Assignment_OOP_3
         // Center name
         public string CenterName { get; set; }
 
+        public Driver Driver { get; set; }
+
+        
+
         // Constructor
         public DeliveryCenter()
         {
             _shipments = new Shipment[20];
             CenterName = "Unknown";
+            
         }
 
         // Integer indexer

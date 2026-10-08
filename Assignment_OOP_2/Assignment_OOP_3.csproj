@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="DeliveryAddress.cs" />
     <Compile Include="DeliveryCenter.cs" />
+    <Compile Include="Driver.cs" />
     <Compile Include="ExpressShipment.cs" />
     <Compile Include="InternationalShipment.cs" />
     <Compile Include="Program.cs" />
